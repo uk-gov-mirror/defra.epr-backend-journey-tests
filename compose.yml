@@ -49,7 +49,7 @@ services:
       - cdp-tenant
 
   floci-init:
-    image: amazon/aws-cli:2.36.2@sha256:964336bffb17b82d2e84a2526b0672e70a2c881544e1a281acaca1d9aa41b536
+    image: amazon/aws-cli:2.37.5@sha256:fb7ccfc7b4e3a05017e6c9ded4ba959b99af622130e211fb976c68c2f4d3f224
     entrypoint: /bin/sh
     command: /setup/init.sh
     depends_on:
@@ -80,7 +80,7 @@ services:
       - cdp-tenant
 
   cdp-uploader:
-    image: defradigital/cdp-uploader:1.19.0@sha256:7aaa9b592b5243cdd819c9fd61b0ed1beede2cc69b4e0ba6e662cb4c6e7f26a6
+    image: defradigital/cdp-uploader:1.27.0@sha256:4749a2ff6ddd34ccdc2caf63afaac1f26f3b8f0dcfd775eb36511725f39deedd
     ports:
       - '7337:7337'
     depends_on:
@@ -112,7 +112,7 @@ services:
       - cdp-tenant
 
   entra-stub:
-    image: defradigital/epr-re-ex-entra-stub:0.81.0@sha256:96bb564c6241423f79879c4e92464306616bc95815898a32af5bdf6cf5d47a4d
+    image: defradigital/epr-re-ex-entra-stub:0.128.0@sha256:487bf6b00a81386c19ef603963b29c4211d8dbb9381fbccc7042365b332db631
     ports:
       - 3010:3010
     environment:
@@ -148,7 +148,7 @@ services:
 
   # Copies cognito seed files into a volume so cognito-stub has its own copies
   cognito-stub-init:
-    image: alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+    image: alpine:3.24.2@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6
     volumes:
       - ./compose/cognito-local/clients.json:/seed/clients.json:ro
       - ./compose/cognito-local/local_4D8shcYm.json:/seed/local_4D8shcYm.json:ro
