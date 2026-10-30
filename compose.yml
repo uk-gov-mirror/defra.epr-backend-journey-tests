@@ -80,7 +80,7 @@ services:
       - cdp-tenant
 
   cdp-uploader:
-    image: defradigital/cdp-uploader:1.19.0@sha256:7aaa9b592b5243cdd819c9fd61b0ed1beede2cc69b4e0ba6e662cb4c6e7f26a6
+    image: defradigital/cdp-uploader:1.28.0@sha256:c2ad7db7c7141a02d1dfd621ace5bf628bd71d156bbe6bd7dbd976f0468f9845
     ports:
       - '7337:7337'
     depends_on:
@@ -112,7 +112,7 @@ services:
       - cdp-tenant
 
   entra-stub:
-    image: defradigital/epr-re-ex-entra-stub:0.81.0@sha256:96bb564c6241423f79879c4e92464306616bc95815898a32af5bdf6cf5d47a4d
+    image: defradigital/epr-re-ex-entra-stub:0.160.0@sha256:85b5300164db01428bb8a546551dea9b2aa109eb327a1df6e29898877704c0bf
     ports:
       - 3010:3010
     environment:
@@ -148,7 +148,7 @@ services:
 
   # Copies cognito seed files into a volume so cognito-stub has its own copies
   cognito-stub-init:
-    image: alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+    image: alpine:3.24.3@sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a
     volumes:
       - ./compose/cognito-local/clients.json:/seed/clients.json:ro
       - ./compose/cognito-local/local_4D8shcYm.json:/seed/local_4D8shcYm.json:ro
